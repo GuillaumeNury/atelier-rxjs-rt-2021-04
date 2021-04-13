@@ -305,6 +305,107 @@
           }
         }
       }
+    },
+    "case-study-b": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "inlineTemplate": true,
+          "inlineStyle": true,
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:module": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        }
+      },
+      "root": "projects/case-study-b",
+      "sourceRoot": "projects/case-study-b/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/case-study-b",
+            "index": "projects/case-study-b/src/index.html",
+            "main": "projects/case-study-b/src/main.ts",
+            "polyfills": "projects/case-study-b/src/polyfills.ts",
+            "tsConfig": "projects/case-study-b/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/case-study-b/src/favicon.ico",
+              "projects/case-study-b/src/assets"
+            ],
+            "styles": [
+              "projects/case-study-b/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/case-study-b/src/environments/environment.ts",
+                  "with": "projects/case-study-b/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "case-study-b:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "case-study-b:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "case-study-b:build"
+          }
+        }
+      }
     }
   },
   "defaultProject": "count-subscription"
